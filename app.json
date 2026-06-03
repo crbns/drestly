@@ -8,7 +8,8 @@
     "scheme": "drestly",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/expo.icon",
+      "bundleIdentifier": "com.crbeans.drestly"
     },
     "android": {
       "adaptiveIcon": {
@@ -39,6 +40,13 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "a82ed151-de77-4d5e-b0bb-7f6e2f7cd021"
+      }
+    },
+    "owner": "isaacs-org"
   }
 }
