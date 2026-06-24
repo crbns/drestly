@@ -1,0 +1,102 @@
+{
+  "fill" : {
+    "solid" : "display-p3:0.94922,0.93311,0.89795,1.00000"
+  },
+  "groups" : [
+    {
+      "blur-material" : null,
+      "layers" : [
+        {
+          "hidden-specializations" : [
+            {
+              "value" : false
+            },
+            {
+              "appearance" : "dark",
+              "value" : true
+            },
+            {
+              "appearance" : "tinted",
+              "value" : true
+            }
+          ],
+          "image-name" : "text4-bolder.svg",
+          "name" : "text4-bolder",
+          "position" : {
+            "scale" : 1.1,
+            "translation-in-points" : [
+              12,
+              0
+            ]
+          }
+        }
+      ],
+      "lighting" : "individual",
+      "position" : {
+        "scale" : 1.1,
+        "translation-in-points" : [
+          12,
+          0
+        ]
+      },
+      "shadow" : {
+        "kind" : "layer-color",
+        "opacity" : 0.46
+      },
+      "specular" : true,
+      "translucency" : {
+        "enabled" : false,
+        "value" : 0.5
+      }
+    },
+    {
+      "layers" : [
+        {
+          "hidden-specializations" : [
+            {
+              "value" : false
+            },
+            {
+              "appearance" : "dark",
+              "value" : false
+            },
+            {
+              "appearance" : "tinted",
+              "value" : false
+            }
+          ],
+          "image-name" : "text4-bolder-cream.svg",
+          "name" : "text4-bolder-cream",
+          "position" : {
+            "scale" : 1.1,
+            "translation-in-points" : [
+              12,
+              0
+            ]
+          }
+        }
+      ],
+      "position" : {
+        "scale" : 1.1,
+        "translation-in-points" : [
+          12,
+          0
+        ]
+      },
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}

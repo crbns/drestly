@@ -1,0 +1,99 @@
+@import 'tailwindcss';
+@import 'uniwind';
+
+/* components/ lives outside src/ (the auto-detected scan base), so register it
+ * explicitly — otherwise classes used only there are never generated. */
+@source "../components";
+
+/*
+ * Drestly design system — Tailwind v4 / Uniwind theme.
+ * "your closet, reimagined" — editorial, calm, premium.
+ * Cream-on-light base, deep pine green partner color.
+ *
+ * Note: the spec's `body` type role maps to `text-base` (16/26) so that
+ * `text-body` stays the body text COLOR (#5C6A5B) without a name clash.
+ */
+@theme {
+  /* ----- Color ----------------------------------------------------------- */
+  --color-cream: #f3eee4; /* primary background */
+  --color-cream-light: #fbf8f1; /* raised cards on cream (creamLt) */
+  --color-surface: #e7e1d3; /* tiles, chips, thumbnails */
+  --color-field: #eae5d9; /* input backgrounds */
+  --color-line: #e2dac9; /* borders, dividers */
+  --color-ink: #1c2b22; /* pine — ink, headers, primary button */
+  --color-body: #5c6a5b; /* body text */
+  --color-muted: #8a9483; /* placeholders, captions */
+  --color-sage: #9cc2a6; /* accent, selected states */
+  --color-on-sage: #16291e; /* text on sage fills (onSage) */
+  --color-forest: #2e5c40; /* accent text, links, emphasis */
+
+  /* ----- Type families ---------------------------------------------------
+   * RN needs one font file per weight (no synthetic bolding), so each
+   * weight is its own family utility. Defaults: serif=Playfair, sans=Inter.
+   */
+  --font-sans: 'Inter-Regular';
+  --font-serif: 'PlayfairDisplay-Medium';
+
+  --font-playfair-medium: 'PlayfairDisplay-Medium';
+  --font-playfair-semibold: 'PlayfairDisplay-SemiBold';
+  --font-inter: 'Inter-Regular';
+  --font-inter-medium: 'Inter-Medium';
+  --font-inter-semibold: 'Inter-SemiBold';
+
+  /* Semantic aliases */
+  --font-display: 'PlayfairDisplay-SemiBold';
+  --font-heading: 'PlayfairDisplay-Medium';
+  --font-wordmark: 'PlayfairDisplay-SemiBold';
+  --font-body: 'Inter-Regular';
+
+  /* ----- Type scale (pair size with font-* family utility) ---------------
+   * display  -> font-display          (Playfair SemiBold)
+   * h1 / h2  -> font-heading          (Playfair Medium)
+   * wordmark -> font-wordmark         (Playfair SemiBold)
+   * base     -> font-inter            (Inter Regular)   = body paragraph
+   * label    -> font-inter-medium     (Inter Medium)    = buttons/labels
+   * caption  -> font-inter            (Inter Regular)
+   */
+  --text-display: 44px;
+  --text-display--line-height: 49px; /* 112% */
+  --text-h1: 32px;
+  --text-h1--line-height: 37px; /* 115% */
+  --text-h2: 24px;
+  --text-h2--line-height: 29px; /* 120% */
+  --text-wordmark: 40px;
+  --text-wordmark--line-height: 40px; /* 100% */
+  --text-base: 16px;
+  --text-base--line-height: 26px; /* 165% — body */
+  --text-label: 14px;
+  --text-label--line-height: 14px; /* 100% */
+  --text-caption: 12px;
+  --text-caption--line-height: 17px; /* 140% */
+
+  /* ----- Spacing scale (named tokens; numeric p-1..p-16 also work) -------- */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 20px;
+  --spacing-2xl: 24px;
+  --spacing-3xl: 32px;
+  --spacing-4xl: 40px;
+  --spacing-5xl: 48px;
+  --spacing-6xl: 64px;
+
+  /* ----- Radius ---------------------------------------------------------- */
+  --radius-field: 10px; /* inputs */
+  --radius-tile: 10px; /* tiles, item cards */
+  --radius-thumb: 7px; /* item-card thumbnail block */
+  --radius-card: 12px; /* cards */
+  --radius-card-lg: 14px; /* cards (upper bound) */
+  --radius-pill: 999px; /* chips, pills, buttons */
+}
+
+@utility border-b-hairline {
+  border-bottom-width: hairlineWidth();
+}
+
+@utility h-hairline {
+  height: hairlineWidth();
+}
