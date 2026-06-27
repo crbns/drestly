@@ -27,6 +27,13 @@
   --color-on-sage: #16291e; /* text on sage fills (onSage) */
   --color-forest: #2e5c40; /* accent text, links, emphasis */
 
+  /* State colors — desaturated to sit calmly in the cream-and-green palette.
+   * Mirror the Toastiva toast accents in src/app/_layout.tsx. */
+  --color-success: #2e5c40; /* forest — positive states, confirmations */
+  --color-warning: #c08a3e; /* muted ochre */
+  --color-error: #a8443a; /* muted terracotta */
+  --color-info: #557a86; /* muted slate-teal */
+
   /* ----- Type families ---------------------------------------------------
    * RN needs one font file per weight (no synthetic bolding), so each
    * weight is its own family utility. Defaults: serif=Playfair, sans=Inter.

@@ -1,3 +1,4 @@
+import { SessionProvider, useSession, useSessionLoading } from '@/ctx/session';
 import {
   Inter_400Regular,
   Inter_500Medium,
@@ -16,11 +17,6 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ToastivaProvider } from 'toastiva';
 import { useResolveClassNames } from 'uniwind';
-import {
-  SessionProvider,
-  useSession,
-  useSessionLoading,
-} from '../../ctx/session';
 import '../global.css';
 
 SplashScreen.preventAutoHideAsync();
@@ -105,6 +101,7 @@ const RootNavigator = () => {
   const session = useSession();
   const isLoading = useSessionLoading();
   const contentStyle = useResolveClassNames('bg-cream');
+  const addItemContentStyle = useResolveClassNames('bg-ink');
 
   // Keep the splash up until the persisted session check resolves, then hide it
   // on the same frame the correct screen mounts — so a cold-started signed-in
@@ -134,6 +131,28 @@ const RootNavigator = () => {
         {/* animation could be "fade" but currently seeing it to "none" since
         I am not sure how many places actually trigger this animation */}
         <Stack.Screen name="(app)" options={{ animation: 'none' }} />
+        <Stack.Screen
+          name="add-item"
+          options={{
+            animation: 'simple_push',
+            headerShown: false,
+            contentStyle: addItemContentStyle,
+          }}
+        />
+        <Stack.Screen
+          name="image-processing"
+          options={{
+            animation: 'simple_push',
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="add-to-closet"
+          options={{
+            animation: 'fade',
+            headerShown: false,
+          }}
+        />
       </Stack.Protected>
     </Stack>
   );

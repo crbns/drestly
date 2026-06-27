@@ -37,5 +37,12 @@
     "ListFooterComponentClassName",
     "ListHeaderComponentClassName"
   ],
-  "tailwindCSS.classFunctions": ["useResolveClassNames"]
+  "tailwindCSS.classFunctions": ["useResolveClassNames"],
+  "python-envs.pythonProjects": [
+    {
+      "path": ".omc/state",
+      "envManager": "ms-python.python:venv",
+      "packageManager": "ms-python.python:pip"
+    }
+  ]
 }

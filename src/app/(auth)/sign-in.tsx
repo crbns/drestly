@@ -9,12 +9,12 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { toastiva } from 'toastiva';
-import AuthStack from '../../../components/AuthStack';
-import FilledButton from '../../../components/FilledButton';
-import HorizontalTextSplit from '../../../components/HorizontalTextSplit';
-import InputField from '../../../components/InputField';
-import { requestPasswordReset, signInWithEmail } from '../../../utils/auth';
-import { authErrorMessage } from '../../../utils/authErrors';
+import { requestPasswordReset, signInWithEmail } from '@/utils/auth';
+import { authErrorMessage } from '@/utils/authErrors';
+import AuthStack from '../../components/AuthStack';
+import FilledButton from '../../components/FilledButton';
+import HorizontalTextSplit from '../../components/HorizontalTextSplit';
+import InputField from '../../components/InputField';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');

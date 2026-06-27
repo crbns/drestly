@@ -10,8 +10,8 @@ import React, {
   useState,
 } from 'react';
 import { toastiva } from 'toastiva';
-import { exchangeDeepLinkSession } from '../utils/auth';
-import { supabase } from '../utils/supabase';
+import { exchangeDeepLinkSession } from '@/utils/auth';
+import { supabase } from '@/utils/supabase';
 
 type SessionState = { session: Session | null; isLoading: boolean };
 

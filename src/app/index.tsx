@@ -1,10 +1,10 @@
 import { LinearGradient } from 'expo-linear-gradient';
-import { Redirect, router } from 'expo-router';
+import { Href, Redirect, router } from 'expo-router';
 import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import FilledButton from '../../components/FilledButton';
-import OutlineButton from '../../components/OutlineButton';
-import { useSession } from '../../ctx/session';
+import { useSession } from '@/ctx/session';
+import FilledButton from '../components/FilledButton';
+import OutlineButton from '../components/OutlineButton';
 
 export default function Index() {
   const session = useSession();
@@ -14,12 +14,17 @@ export default function Index() {
   // users (cold start with a persisted session, or the guard bouncing them here
   // after auth) belong in the app.
   if (session) {
-    return <Redirect href="/home" />;
+    // DX: a full JS reload restarts the router at `/`, so you always get bounced
+    // to /home no matter which screen you were editing. In dev, point
+    // EXPO_PUBLIC_DEV_INITIAL_ROUTE (e.g. "/add-item") at the screen you're
+    // working on to land there on reload instead. No-op in production.
+    const devRoute = __DEV__ && process.env.EXPO_PUBLIC_DEV_INITIAL_ROUTE;
+    return <Redirect href={(devRoute || '/home') as Href} />;
   }
 
   return (
     <ImageBackground
-      source={require('../../assets/images/index/closet.jpg')}
+      source={require('@/assets/images/index/closet.jpg')}
       resizeMode="cover"
       className="flex-1 px-2xl"
     >

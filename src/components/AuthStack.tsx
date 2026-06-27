@@ -6,7 +6,7 @@ import {
 import * as AppleAuthentication from 'expo-apple-authentication';
 import { Image } from 'expo-image';
 import { Platform, Pressable, Text, View } from 'react-native';
-import { supabase } from '../utils/supabase';
+import { supabase } from '@/utils/supabase';
 
 type AuthStackProps = {
   type: 'SIGN_IN' | 'SIGN_UP';
@@ -126,7 +126,7 @@ const GoogleAuthButton = ({ type }: AuthStackProps) => {
       }}
     >
       <Image
-        source={require('../assets/images/auth/Google_Favicon_2025.svg')}
+        source={require('@/assets/images/auth/Google_Favicon_2025.svg')}
         style={{ width: 18, height: 18 }}
         contentFit="contain"
       />

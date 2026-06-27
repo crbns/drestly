@@ -25,26 +25,26 @@ const Button = ({
   isLoading,
   disabled,
 }: ButtonProps) => {
-  const opacity = useRef(new Animated.Value(1)).current;
-  const fadeTo = (
-    toValue: number,
+  const scale = useRef(new Animated.Value(1)).current;
+  const animatePress = (
+    scaleTo: number,
     easing: (value: number) => number,
     duration: number
   ) =>
-    Animated.timing(opacity, {
-      toValue,
+    Animated.timing(scale, {
+      toValue: scaleTo,
       duration,
       easing,
       useNativeDriver: true,
     }).start();
 
   return (
-    <Animated.View style={{ opacity, alignSelf: 'stretch' }}>
+    <Animated.View style={{ transform: [{ scale }], alignSelf: 'stretch' }}>
       <Pressable
         onPress={onClick}
-        onPressIn={() => fadeTo(0.8, Easing.linear, 15)}
-        onPressOut={() => fadeTo(1, Easing.out(Easing.ease), 150)}
-        className={`${className ?? ''} self-stretch min-h-12 items-center justify-center rounded-full ${disabled && 'opacity-50'}`}
+        onPressIn={() => animatePress(0.96, Easing.out(Easing.quad), 90)}
+        onPressOut={() => animatePress(1, Easing.out(Easing.cubic), 160)}
+        className={`${className ?? ''} self-stretch min-h-12 items-center justify-center rounded-full ${disabled ? 'opacity-50' : ''}`}
         disabled={disabled || isLoading}
       >
         {isLoading ? (
@@ -52,7 +52,7 @@ const Button = ({
         ) : (
           <Text
             numberOfLines={1}
-            className={`font-inter-semibold text-label ${textClassName ?? 'text-cream'}`}
+            className={`font-inter-medium text-label ${textClassName ?? 'text-cream'}`}
           >
             {buttonText}
           </Text>

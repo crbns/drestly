@@ -4,12 +4,12 @@ import { useState } from 'react';
 import { Keyboard, Text, TouchableWithoutFeedback, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { toastiva } from 'toastiva';
-import AuthStack from '../../../components/AuthStack';
-import FilledButton from '../../../components/FilledButton';
-import HorizontalTextSplit from '../../../components/HorizontalTextSplit';
-import InputField from '../../../components/InputField';
-import { signUpNewUser } from '../../../utils/auth';
-import { authErrorMessage } from '../../../utils/authErrors';
+import { signUpNewUser } from '@/utils/auth';
+import { authErrorMessage } from '@/utils/authErrors';
+import AuthStack from '../../components/AuthStack';
+import FilledButton from '../../components/FilledButton';
+import HorizontalTextSplit from '../../components/HorizontalTextSplit';
+import InputField from '../../components/InputField';
 
 const SignUp = () => {
   const [fullName, setFullName] = useState('');

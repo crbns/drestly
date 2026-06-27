@@ -26,6 +26,7 @@ const InputField = ({
   onChangeText,
 }: InputFieldProps) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
 
   return (
     <View className={`w-full ${className}`}>
@@ -35,7 +36,9 @@ const InputField = ({
         </Text>
       )}
       <View
-        className={`flex-row gap-2 bg-field rounded-field border-2 border-line`}
+        className={`flex-row gap-2 bg-field rounded-field border-2 ${
+          isFocused ? 'border-forest' : 'border-line'
+        }`}
       >
         <View className="justify-center ml-2">
           {inputType == 'email' && <Icons.EnvelopeSimpleIcon color="#5c6a5b" />}
@@ -48,6 +51,8 @@ const InputField = ({
           placeholder={placeholderText ?? ''}
           autoComplete={autoComplete}
           secureTextEntry={inputType === 'password' && !passwordVisible}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
         />
         {RightIconComponent && (
           <View className="mr-2">

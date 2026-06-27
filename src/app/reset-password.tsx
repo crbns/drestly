@@ -3,10 +3,10 @@ import { useState } from 'react';
 import { Keyboard, Text, TouchableWithoutFeedback, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { toastiva } from 'toastiva';
-import FilledButton from '../../components/FilledButton';
-import InputField from '../../components/InputField';
-import { updatePassword } from '../../utils/auth';
-import { authErrorMessage } from '../../utils/authErrors';
+import { updatePassword } from '@/utils/auth';
+import { authErrorMessage } from '@/utils/authErrors';
+import FilledButton from '../components/FilledButton';
+import InputField from '../components/InputField';
 
 const ResetPassword = () => {
   const [password, setPassword] = useState('');

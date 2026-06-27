@@ -4,23 +4,25 @@
     "slug": "drestly",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./src/assets/images/icon.png",
     "scheme": "drestly",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/Drestly.icon",
+      "icon": "./src/assets/Drestly.icon",
       "bundleIdentifier": "com.isaac.drestly",
       "appleTeamId": "U94VX8H9JU",
       "supportsTablet": false,
-      "associatedDomains": ["applinks:drestly.com"]
+      "associatedDomains": ["applinks:drestly.com"],
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
-        // TODO: set this icon up
         "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
-        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+        "foregroundImage": "./src/assets/images/android-icon-foreground.png",
+        "backgroundImage": "./src/assets/images/android-icon-background.png",
+        "monochromeImage": "./src/assets/images/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,
       "package": "com.isaac.drestly",
@@ -29,11 +31,16 @@
           "action": "VIEW",
           "autoVerify": true,
           "data": [
-            { "scheme": "https", "host": "drestly.com", "pathPrefix": "/auth" }
+            {
+              "scheme": "https",
+              "host": "drestly.com",
+              "pathPrefix": "/auth"
+            }
           ],
           "category": ["BROWSABLE", "DEFAULT"]
         }
-      ]
+      ],
+      "permissions": ["android.permission.CAMERA"]
     },
     "web": {
       "output": "static"
@@ -45,9 +52,9 @@
         "expo-splash-screen",
         {
           "backgroundColor": "#f3eee4",
-          "image": "./assets/icons/drestly-icon-1024.png",
+          "image": "./src/assets/icons/drestly-icon-1024.png",
           "dark": {
-            "image": "./assets/icons/drestly-icon-alt-1024.png",
+            "image": "./src/assets/icons/drestly-icon-alt-1024.png",
             "backgroundColor": "#1c2b22"
           },
           "imageWidth": 200
@@ -58,6 +65,23 @@
         "@react-native-google-signin/google-signin",
         {
           "iosUrlScheme": "com.googleusercontent.apps.919510031441-ubvmnhktm85fh2rgedncs49atbu3q05l"
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow ${PRODUCT_NAME} to access your camera",
+          "recordAudioAndroid": false
+        }
+      ],
+      "expo-font",
+      "expo-image",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
         }
       ]
     ],
